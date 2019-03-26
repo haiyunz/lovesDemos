@@ -33,6 +33,11 @@ public class LoginController {
 		return "login/faceLoginRegister";
 	}
 	
+	@RequestMapping(value = "/home.action")
+	public String home(HttpServletRequest request) {
+		return "widding/home";
+	}
+	
 	@RequestMapping(value = "/faceLogin.action")
 	public String faceLogin(HttpServletRequest request) {
 		return "login/faceLogin";
