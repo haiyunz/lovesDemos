@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.example.demo.entiy.Person;
 import com.example.demo.faceCheck.FaxeCheck;
 import com.example.demo.services.LoginServices;
 import com.example.demo.util.BaseToImage;
@@ -137,6 +139,18 @@ public class LoginController {
 	    	session.setAttribute("race", race);
 			session.setAttribute("faceToken", faceToken);
 	    	session.setAttribute("src","../upload/"+userIdName+".jpeg" );
+	    	session.setAttribute("userIdName", userIdName);
+	    	Person userNameBoolean=loginServices.findByUserName(userIdName);
+	    	session.setAttribute("loginCount", userNameBoolean.getLoginCount());
+	    	session.setAttribute("isLevel", userNameBoolean.getIsLevel());
+	    	session.setAttribute("isPower", userNameBoolean.getIsPower());
+	    	session.setAttribute("creatTime", userNameBoolean.getCreateTime());
+	    	boolean person= loginServices.updateScore(String.valueOf(beauty),userIdName);
+	    	//当用户是不是第一登陆的时候,更新数据库用户的得分
+	    	if(0!=userNameBoolean.getLoginCount()) {
+	    		session.setAttribute("newScore", beauty);
+	    		session.setAttribute("oldScore", userNameBoolean.getScore());
+	    	}
 		} else {
 			//人脸检测失败
 	    	session.setAttribute("ME0000", "登陆失败,未检测到人脸");
@@ -161,8 +175,8 @@ public class LoginController {
 		//String base = request.getParameter("base");
 		String userName =map.get("userName").toString();
 		//校验该用户名有没有被注册;
-		boolean userNameBoolean=loginServices.findByUserName(userName);
-		if(userNameBoolean) {
+		Person userNameBoolean=loginServices.findByUserName(userName);
+		if(null==userNameBoolean) {
 			//该用户已被注册
 			return "MY4445";
 		}
@@ -227,8 +241,40 @@ public class LoginController {
 	@RequestMapping(value = "/vedioPlay.action")
 	@ResponseBody
 	public String vedioPlay(HttpServletRequest request,HttpSession session) {
-		ActiveXComponent sap = new ActiveXComponent("Sapi.SpVoice");
+
 		String beauty =request.getParameter("beauty");
+		String userName =(String) session.getAttribute("userIdName");
+		String loginCount =session.getAttribute("loginCount").toString();
+		String creatTime =(String) session.getAttribute("creatTime");
+		String newScore =(String) session.getAttribute("newScore");
+		String oldScore =(String) session.getAttribute("oldScore");
+		
+		String vedioString="";
+		if("0".equals(loginCount)) {
+			//用户第一次登陆
+			vedioString ="亲爱的"+userName+"同学,很荣幸您能注册本网站,即将为您打印本次注册的人脸检测信息。";
+			
+			getVedio(vedioString);
+			return "";
+		}else {
+			vedioString="";
+			int oldS =Integer.parseInt(oldScore);
+			int  newS =Integer.parseInt(newScore);
+			if(newS>oldS) {
+				vedioString=userName +"同学,这次得分比上次提高了"+(newS-oldS)+"分哦！";
+			}else {
+				vedioString=userName +"同学,这次得分比上次低了了"+(newS-oldS)+"分哦！,努力提高颜值吧！";
+			}
+		}
+		return "";
+	}
+	
+	/**
+	 *声音阅读 
+	 * @param vedioString
+	 */
+	public void getVedio(String vedioString) {
+		ActiveXComponent sap = new ActiveXComponent("Sapi.SpVoice");
 		try {
 			// 音量 0-100
 			sap.setProperty("Volume", new Variant(100));
@@ -237,15 +283,15 @@ public class LoginController {
 			// 获取执行对象
 			Dispatch sapo = sap.getObject();
 			// 执行朗读
-			Dispatch.call(sapo, "Speak", new Variant("得分"+beauty+",颜值爆表!"));
+			Dispatch.call(sapo, "Speak", new Variant(vedioString));
 			// 关闭执行对象
 			sapo.safeRelease();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			// 关闭应用程序连接
+			
 			sap.safeRelease();
 		}
-		return "";
 	}
 }

@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.runner.ReactiveWebApplicationContextRunner;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -21,7 +22,7 @@ public class LoginServicesImpl implements LoginServices {
 			return false ;
 		}
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-		System.out.println();// new Date()为获取当前系统时间
+		
 		Person person=new Person();
 		//登录名
 		person.setUserName(name);
@@ -32,6 +33,8 @@ public class LoginServicesImpl implements LoginServices {
 		person.setLoginCount(0);//登陆次数
 		person.setIsPower(0);//设置人物级别
 		person.setCreatTime(df.format(new Date()).toString());
+		
+		person.setScore("0");
 		if( loginDao.save(person) != null) {
 			return true ;
 		}
@@ -53,16 +56,13 @@ public class LoginServicesImpl implements LoginServices {
 	}
 
 	@Override
-	public boolean findByUserName(String userName) {
+	public Person findByUserName(String userName) {
 		if("".equals(userName)) {
-			return false;
+			return null;
 		}
 		
-		Person userBoolean = loginDao.findByUserName(userName);
-		if(null!=userBoolean) {
-			return true ;
-		}
-		return false;
+		Person person = loginDao.findByUserName(userName);
+		return person;
 	}
 
 	@Override
@@ -82,6 +82,18 @@ public class LoginServicesImpl implements LoginServices {
 		person = loginDao.save(person);
 		if (StringUtils.isEmpty(person)) {
 			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public boolean updateScore(String beauty,String userName) {
+		SimpleDateFormat df1 = new SimpleDateFormat("yyyy-MM-dd ");//设置日期格式
+		Person person =new Person();
+		try {
+			loginDao.deleteByUserName(beauty,userName,df1.format(new Date()).toString());
+		} catch (Exception e) {
+				return false;
 		}
 		return true;
 	}

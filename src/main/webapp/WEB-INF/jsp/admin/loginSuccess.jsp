@@ -36,17 +36,25 @@
 		</tr>
 
 		<tr>
-		<div class="demo">
-			年龄：<span>${sessionScope.age }</span> <br /> 打分：<span>${sessionScope.beauty }</span>
-			<span> (范围0-100，越大表示越美。)</span><br /> 情绪：<span>${sessionScope.emotion }</span>
-			<br /> 表情：<span>${sessionScope.expression }</span> <br /> 人脸数量：<span>${sessionScope.faceNum }</span>
-			<br /> 人脸置信度：<span>${sessionScope.faceProbability }</span>
-			<br /> 脸型：<span>${sessionScope.faceShape }</span> <br /> 人种类：<span>${sessionScope.faceType }</span>
-			<br /> 性别：<span>${sessionScope.gender }</span> <br /> 左眼睁开状态：<span>${sessionScope.leftEye }</span>
-			<br /> 右眼睁开状态：<span>${sessionScope.rigthEye }</span> <br /> 世界人种：<span>${sessionScope.race }</span>
-			<br />
-		</div>
+		<td>
+			<div class="demo" style="display:none" id="word">
+				年龄：<span>${sessionScope.age }</span> <br /> 打分：<span>${sessionScope.beauty }</span>
+				<span> (范围0-100，越大表示越美。)</span><br /> 情绪：<span>${sessionScope.emotion }</span>
+				<br /> 表情：<span>${sessionScope.expression }</span> <br /> 人脸数量：<span>${sessionScope.faceNum }</span>
+				<br /> 人脸置信度：<span>${sessionScope.faceProbability }</span>
+				<br /> 脸型：<span>${sessionScope.faceShape }</span> <br /> 人种类：<span>${sessionScope.faceType }</span>
+				<br /> 性别：<span>${sessionScope.gender }</span> <br /> 左眼睁开状态：<span>${sessionScope.leftEye }</span>
+				<br /> 右眼睁开状态：<span>${sessionScope.rigthEye }</span> <br /> 世界人种：<span>${sessionScope.race }</span>
+				<br />
+			</div>
+		</td>
 		</tr>
+		<tr>
+			<td>
+				<pre id="write"></pre>
+			</td>
+		</tr>
+		
 	</table>
 	<!-- <div id ="yanhuanStyle" style="margin-top:-350px;margin-left:-180;">
 		<canvas id="mycanvas" style="width:600;height:900;" ></canvas>
@@ -54,27 +62,31 @@
 	<script>
     //window.requestAnimationFrame()这个API是浏览器提供的js全局方法，针对动画效果。
     //$("#yanhuanStyle").hide();
-    
-    if(100 <50){
-    	//$("#yanhuanStyle").hide();
-    }else{
-    	//执行语音方法
-    	videoPlay();
-    	//$("#yanhuanStyle").show();
-    }
+    var isCount =${sessionScope.loginCount};
+    videoPlay();
+    writeWord("word","write");
     var beauty=${sessionScope.beauty };
+    
+    
     function videoPlay () {
     	$.ajax({
 				type:"post",
 				url:"<%=basePath%>/login/vedioPlay.action",
 				data:{"beauty":beauty},
 				success:function(data){
-										
+		
 				}
 			});
 	}
     
-    
+    function writeWord(id,id1){
+    	var index=0;
+        var word=document.getElementById(id).innerHTML;
+        function type(){
+            document.getElementById(id1).innerText = word.substring(0,index++);
+        }
+        setInterval(type, 200);
+    }
     
     
     

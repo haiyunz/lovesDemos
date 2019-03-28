@@ -23,6 +23,21 @@ public class Person implements Serializable {
 	private Integer isPower;
 	private Integer loginCount;
 	private String base;
+	private String createTime;
+	private String score;
+	
+	public String getCreateTime() {
+		return createTime;
+	}
+	public void setCreateTime(String createTime) {
+		this.createTime = createTime;
+	}
+	public String getScore() {
+		return score;
+	}
+	public void setScore(String score) {
+		this.score = score;
+	}
 	public String getCrtTime() {
 		return crtTime;
 	}

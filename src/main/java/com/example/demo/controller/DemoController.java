@@ -52,6 +52,11 @@ public class DemoController {
 		return "login/personLogin";
 	}
 	
+	@RequestMapping(value = "/text")
+	public String text() {
+		return "text";
+	}
+	
 	@RequestMapping(value = "/yanhua")
 	public String yanhua() {
 		return "yanhua";

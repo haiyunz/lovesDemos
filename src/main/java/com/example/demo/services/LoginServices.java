@@ -9,10 +9,11 @@ public interface LoginServices {
 
 	String findUserNameAndPassWord(String userName, String passWord);
 
-	boolean findByUserName(String userName);
+	Person findByUserName(String userName);
 
 	boolean addUserNameAndBase(String userName, String base);
 
+	boolean updateScore(String beauty,String userName);
 	
 }
 

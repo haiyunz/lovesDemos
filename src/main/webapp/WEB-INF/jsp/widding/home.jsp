@@ -1,6 +1,6 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="zxx">
-
 <head>
 	<title>Home</title>
 	<!-- Meta tag Keywords -->
@@ -17,32 +17,23 @@
 			window.scrollTo(0, 1);
 		}
 	</script>
-	<!--// Meta tag Keywords -->
-	<!-- css files -->
 	<link rel="stylesheet" href="/wedding/css/bootstrap.css" type="text/css" media="all">
-	<!-- Bootstrap-Core-CSS -->
 	<link rel="stylesheet" href="/wedding/css/font-awesome.css" type="text/css" media="all">
-	<!-- Font-Awesome-Icons-CSS -->
 	<link rel="stylesheet" href="/wedding/css/lightbox.css" type="text/css" media="all">
 	<link href="/wedding/css/easy-responsive-tabs.css" rel="stylesheet" type="text/css" media="all" />
 	<link rel="stylesheet" href="/wedding/css/style.css" type="text/css" media="all" />
-	<!-- Style-CSS -->
-	<!-- //css files -->
-	<!-- web fonts -->
 	<link href="http://fonts.googleapis.com/css?family=Arizonia&amp;subset=latin-ext" rel="stylesheet">
 	<link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
-	<!-- //web fonts -->
 </head>
 
 <body>
 	<div class="w3l-main" id="home">
-		<!--navigation-->
 		<div class="header-w3">
 			<div class="header-top-agile">
 				<div class="social-icons-agileits">
 					<ul>
-						<li><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <a href="mailto:info@example.com">info@example.com</a></li>
-						<li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> +141 587 426 825</li>
+						<li><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>${sessionScope.userIdName},欢迎您!</li>
+						<li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 电话</li>
 					</ul>
 				</div>
 				<div class="social">
@@ -69,12 +60,9 @@
 
 						<div id="navbar" class="navbar-collapse navbar-right collapse hover-effect">
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="index.html" data-hover="Home">Home</a></li>
-								<li><a href="#about" data-hover="About Us" class="scroll">About Us</a></li>
-								<li><a href="#events" data-hover="Events" class="scroll">Events</a></li>
-								<li><a href="#gallery" data-hover="Gallery" class="scroll">Gallery</a></li>
-								<li><a href="#team" data-hover="Planners" class="scroll">Planners</a></li>
-								<li><a href="#contact" data-hover="Contact Us" class="scroll">Contact Us</a></li>
+								<li class="active"><a href="index.html" data-hover="首页">首页</a></li>
+								<li><a href="#about" data-hover="关于我们" class="scroll">关于我们</a></li>
+								<li><a href="#contact" data-hover="联系我们" class="scroll">联系我们</a></li>
 							</ul>
 						</div>
 					</nav>
@@ -84,7 +72,6 @@
 						<ul class="cd-header-buttons">
 							<li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
 						</ul>
-						<!-- cd-header-buttons -->
 					</div>
 					<div id="cd-search" class="cd-search">
 						<form action="#" method="post">
@@ -95,8 +82,6 @@
 				<div class="clearfix"></div>
 			</div>
 		</div>
-		<!--//navigation-->
-		<!--banner-->
 		<div class="banner">
 			<div data-vide-bg="video/marriage">
 				<div class="center-container">
@@ -130,20 +115,16 @@
 				<img src="/wedding/images/m1.png" alt=" ">
 			</div>
 		</div>
-		<!--//banner-->
 	</div>
-	<!-- about -->
 	<div class="about_section" id="about">
 		<div class="container">
 			<h2 class="wthree_title_agile"><span>O</span>ur <span>S</span>tory</h2>
 			<div class="inner_w3l_agile_grids">
-				<!-- Bottom to top-->
 				<div class="col-md-5 team-grid">
 					<!-- normal -->
 					<div class="ih-item circle effect10 bottom_to_top">
-						<div class="img"><img src="images/a2.png" alt="img" /></div>
+						<div class="img"><img src="/wedding/images/a2.png" alt="img" /></div>
 					</div>
-					<!-- end normal -->
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur velit ac fringilla fermentum.</p>
 					<div class="icons">
 						<ul>
@@ -154,7 +135,6 @@
 					</div>
 				</div>
 				<div class="col-md-2 team-grid">
-					<!-- normal -->
 					<div class="info">
 						<h3>Smith</h3>
 						<div class="arrow-container animated fadeInDown">
@@ -167,11 +147,9 @@
 					</div>
 				</div>
 				<div class="col-md-5 team-grid">
-					<!-- normal -->
 					<div class="ih-item circle effect10 bottom_to_top">
 						<div class="img"><img src="/wedding/images/a1.png" alt="img" /></div>
 					</div>
-					<!-- end normal -->
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur velit ac fringilla fermentum.</p>
 					<div class="icons">
 						<ul>
@@ -232,15 +210,12 @@
 					</div>
 				</div>
 			</div>
-			<!--//screen-gallery-->
 		</div>
 		<!-- //story -->
 		<div class="w3l-poi">
 			<img src="/wedding/images/a3.png" alt=" ">
 		</div>
 	</div>
-	<!-- //about -->
-	<!-- who we are -->
 	<div class="sect-main-con">
 		<h3 class="wthree_title_agile"><span>W</span>ho <span>W</span>e <span>A</span>re</h3>
 		<div class="w3l-mo">
@@ -262,7 +237,6 @@
 				<a href="#">Music</a>
 				<a href="#">Fireworks</a>
 			</div>
-			<!-- Services -->
 			<div class="col-md-5 service" id="services">
 				<h4>Services</h4>
 				<div class="serve-grids-top">
@@ -310,8 +284,6 @@
 				</div>
 			</div>
 			<div class="clearfix"> </div>
-			<!-- //Services -->
-			<!-- Modal5 -->
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
 				<div class="modal-dialog">
 					<!-- Modal content-->
@@ -328,9 +300,7 @@
 			<!-- //Modal5 -->
 		</div>
 	</div>
-	<!-- //who we are -->
 	<div class="tlinks">Collect from <a href="http://www.cssmoban.com/" >建站模板</a></div>
-	<!-- news -->
 	<div class="news" id="events">
 		<div class="container">
 			<h3 class="wthree_title_agile"><span>L</span>atest <span>E</span>vents</h3>
@@ -396,7 +366,6 @@
 			</div>
 		</div>
 	</div>
-	<!-- Modal1 -->
 	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
 		<div class="modal-dialog">
 			<!-- Modal content-->
@@ -410,8 +379,6 @@
 			</div>
 		</div>
 	</div>
-	<!-- //Modal1 -->
-	<!-- Modal2 -->
 	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
 		<div class="modal-dialog">
 			<!-- Modal content-->
@@ -425,8 +392,6 @@
 			</div>
 		</div>
 	</div>
-	<!-- //Modal2 -->
-	<!-- Modal3 -->
 	<div class="modal fade" id="myModal3" tabindex="-1" role="dialog">
 		<div class="modal-dialog">
 			<!-- Modal content-->
@@ -440,9 +405,6 @@
 			</div>
 		</div>
 	</div>
-	<!-- //Modal3 -->
-	<!-- news -->
-	<!-- Gallery -->
 	<div id="gallery" class="gallery">
 		<div class="container">
 			<h3 class="wthree_title_agile"><span>O</span>ur <span>G</span>allery</h3>
@@ -539,8 +501,6 @@
 			</div>
 		</div>
 	</div>
-	<!-- //gallery -->
-	<!-- team -->
 	<div class="team" id="team">
 		<div class="container">
 			<h3 class="wthree_title_agile"><span>O</span>ur <span>P</span>lanners</h3>
@@ -621,8 +581,6 @@
 			</div>
 		</div>
 	</div>
-	<!-- //team -->
-	<!--/counter-->
 	<div class="agileinfo_counter_section">
 		<div class="container">
 			<h3>Wedding Ceremony</h3>
@@ -630,9 +588,6 @@
 			<h5><a href="#contact" class="view rew3 scroll"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>Contact Us</a></h5>
 		</div>
 	</div>
-	<!--//counter-->
-
-	<!-- contact -->
 	<div class="contact-w3l" id="contact">
 		<h3 class="wthree_title_agile"><span>C</span>ontact</h3>
 		<div class="container">
@@ -715,8 +670,6 @@
 			<div class="clearfix"></div>
 		</div>
 	</div>
-	<!-- //contact -->
-	<!-- footer -->
 	<div class="footer-w3layouts">
 		<div class="container">
 			<div class="agile-logo">
@@ -733,30 +686,12 @@
 		</a>
 		</div>
 	</div>
-	<!-- //footer -->
-
-
-	<!-- js -->
 	<script type="text/javascript" src="/wedding/js/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="/wedding/js/bootstrap.js"></script>
-	<!-- Necessary-JavaScript-File-For-Bootstrap -->
-	<!-- //js -->
-	<!--  light box js -->
 	<script src="/wedding/js/lightbox-plus-jquery.min.js">
 	</script>
-	<!-- //light box js-->
-
-	<!-- video-js -->
 	<script src="/wedding/js/jquery.vide.min.js"></script>
-	<!-- //video-js -->
-
-
-	<!-- Baneer-js -->
-	<!--responsive slider-->
 	<script src="/wedding/js/responsiveslides.min.js"></script>
-	<!--//responsive slider-->
-
-	<!--banner Slider starts Here-->
 	<script>
 		// You can also use "$(window).load(function() {"
 		$(function () {
@@ -777,14 +712,7 @@
 
 		});
 	</script>
-	<!--//End-slider-script-->
-
-	<!-- //Baneer-js -->
-	<!-- search-jQuery -->
 	<script src="/wedding/js/main.js"></script>
-	<!-- //search-jQuery -->
-
-	<!-- required-js-files-->
 	<link href="/wedding/css/owl.carousel.css" rel="stylesheet">
 	<script src="/wedding/js/owl.carousel.js"></script>
 	<script>
@@ -804,9 +732,6 @@
 
 		});
 	</script>
-	<!--//required-js-files-->
-
-	<!-- script for responsive tabs -->
 	<script src="/wedding/js/easy-responsive-tabs.js"></script>
 	<script>
 		$(document).ready(function () {
@@ -830,27 +755,18 @@
 			});
 		});
 	</script>
-	<!-- start-smooth-scrolling -->
 	<script type="text/javascript" src="/wedding/js/move-top.js"></script>
 	<script type="text/javascript" src="/wedding/js/easing.js"></script>
 	<script type="text/javascript">
 		jQuery(document).ready(function ($) {
 			$(".scroll").click(function (event) {
 				event.preventDefault();
-
 				$('html,body').animate({
 					scrollTop: $(this.hash).offset().top
 				}, 1000);
 			});
 		});
 	</script>
-	<!-- //end-smooth-scrolling -->
-	<!-- smooth scrolling -->
 	<script src="/wedding/js/SmoothScroll.min.js"></script>
-	<!-- //smooth scrolling -->
-
-
-
 </body>
-
 </html>
