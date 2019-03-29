@@ -19,7 +19,7 @@ public interface  LoginDao extends JpaRepository<Person, Integer>{
 
 	@Modifying
 	@Transactional
-	@Query(value="UPDATE Person SET SCORE =: beauty AND CREATE_TIME =:createTime  WHERE USER_NAME =: userName",nativeQuery = true)
-	void deleteByUserName(@Param("beauty") String beauty,@Param("userName") String userName,@Param(value = "createTime") String createTime);
+	@Query(value="UPDATE Person SET SCORE = beauty?1 , CREATE_TIME =createTime?2  WHERE USER_NAME = userName?3",nativeQuery = true)
+	void deleteByUserName( String beauty, String createTime,String userName);
 
 }

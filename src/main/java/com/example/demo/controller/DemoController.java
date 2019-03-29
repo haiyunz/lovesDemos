@@ -57,6 +57,11 @@ public class DemoController {
 		return "text";
 	}
 	
+	@RequestMapping(value = "/alert")
+	public String alert() {
+		return "Alert";
+	}
+	
 	@RequestMapping(value = "/yanhua")
 	public String yanhua() {
 		return "yanhua";

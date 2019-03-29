@@ -30,6 +30,11 @@ public class LoginController {
 		return "login/faceLoginRegister";
 	}
 	
+	@RequestMapping(value = "/widding")
+	public String wedding(HttpServletRequest request) {
+		return "login/widding/home";
+	}
+	
 	@RequestMapping(value = "/idRegister.action")
 	public String idRegister(HttpServletRequest request) {
 		return "login/faceLoginRegister";
@@ -176,7 +181,7 @@ public class LoginController {
 		String userName =map.get("userName").toString();
 		//校验该用户名有没有被注册;
 		Person userNameBoolean=loginServices.findByUserName(userName);
-		if(null==userNameBoolean) {
+		if(null!=userNameBoolean) {
 			//该用户已被注册
 			return "MY4445";
 		}
