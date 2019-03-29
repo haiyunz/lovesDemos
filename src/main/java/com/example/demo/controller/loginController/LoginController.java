@@ -32,7 +32,7 @@ public class LoginController {
 	
 	@RequestMapping(value = "/widding")
 	public String wedding(HttpServletRequest request) {
-		return "login/widding/home";
+		return "widding/home";
 	}
 	
 	@RequestMapping(value = "/idRegister.action")

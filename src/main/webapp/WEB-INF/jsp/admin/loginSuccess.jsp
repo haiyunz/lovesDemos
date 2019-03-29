@@ -59,7 +59,7 @@
 		<tr>
 			<td>
 				<div class="demo" style="display: none" id="word">
-					年龄：${sessionScope.age }           打分：${sessionScope.beauty }
+					年龄：${sessionScope.age }           得分：${sessionScope.beauty }
 					情绪：${sessionScope.emotion }       表情：${sessionScope.expression }
 					人脸数量：${sessionScope.faceNum }    人脸置信度：${sessionScope.faceProbability }
 					脸型：${sessionScope.faceShape }     人种类：${sessionScope.faceType }
@@ -80,7 +80,7 @@
 		<canvas id="mycanvas" style="width:600;height:900;" ></canvas>
 	</div> -->
 <h2><a href="javascript:;" id="confirm" style="display : none ">Confirm</a></h2>
-
+<h2><a href="javascript:;" id="confirm1" style="display : none ">Confirm</a></h2>
 
 
 
@@ -149,23 +149,19 @@
 		                	window.location.href="<%=basePath%>/login/widding";	
 		                	return ;
 		                } else {
-		                    while(true){
-		                    clickMe(confirm1)	;
-		               		 $(function () {
-		               		        $("#confirm1").click(function () {
-		               		            confirm("Are you sure?", "不继续也得继续,继续不继续?!", function (isConfirm) {
-		               		                if (isConfirm) {
-		               		                	window.location.href="<%=basePath%>/login/widding";	
-		               		                	return ;
-		               		                } else {
-		               		                    continue;
-		               		                }
-		               		            }, {confirmButtonText: '好吧好吧,去看看!', cancelButtonText: '有本事打死我,就是不继续!', width: 400});
-		               		        });
-		               		    });
-		                    	
-		                    	
-		                    }
+		                	confirm("Are you sure ?" , "确定要离开吗？" , function (is){
+		                		if(is){
+		                			window.location.href="<%=basePath%>/login/widding";
+		                			return ;
+		                		}else{
+		                			window.location.href="<%=basePath%>/save";
+		                			return ;
+		                		}
+		                		
+		                	},{confirmButtonText: '算了，去看看吧！', cancelButtonText: '是的，我要离开！', width: 400});
+		                	
+		                	
+		                	return ;
 		                }
 		            }, {confirmButtonText: 'Yes,go on!', cancelButtonText: 'No, Thanks!', width: 400});
 		        });
