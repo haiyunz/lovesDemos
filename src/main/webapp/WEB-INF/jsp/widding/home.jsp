@@ -174,7 +174,7 @@
 						</div>
 						<div class="item-owl">
 							<div class="test-review">
-								<img src="/wedding/images/s1.jpg" alt="" />
+								<img src="/wedding/images/lb1.jpg" alt="" />
 							</div>
 						</div>
 						<div class="item-owl">
@@ -676,7 +676,7 @@
 				<a href="index.html">WC</a>
 			</div>
 			<div class="agile-copy">
-				<p>Copyright &copy; 2017.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+				<p>Copyright &copy; 2017.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="" target="_blank"></a></p>
 			</div>
 			<div class="clearfix"></div>
 		</div>

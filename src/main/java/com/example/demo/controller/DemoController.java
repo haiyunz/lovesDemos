@@ -1,45 +1,19 @@
 package com.example.demo.controller;
-
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.http.client.methods.CloseableHttpResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.baidu.aip.util.Base64Util;
 import com.example.demo.entiy.HumanClass;
 import com.example.demo.faceCheck.FaxeCheck;
 import com.example.demo.services.DemoServices;
-import com.example.demo.util.FileUtil;
-import com.example.demo.util.GetTon;
-import com.example.demo.util.GsonUtils;
-import com.example.demo.util.HttpUtil;
 
-import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-
 
 @Controller
 public class DemoController {

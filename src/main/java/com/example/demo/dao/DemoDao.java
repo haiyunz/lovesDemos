@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.entiy.Demo;
 
 
+
 @Repository
 public interface DemoDao extends JpaRepository<Demo, Integer> {
 

@@ -1,6 +1,5 @@
 package com.example.demo.faceCheck;
 
-import static org.hamcrest.CoreMatchers.nullValue;
 
 import java.io.BufferedReader;
 import java.util.ArrayList;
